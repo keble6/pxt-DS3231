@@ -1,0 +1,70 @@
+TEST1 - set and read back time registers
+1 PASS
+2 PASS
+3 PASS
+4 PASS
+5 PASS
+6 PASS
+7 PASS
+TEST2 - set and read back time registers
+1 PASS
+2 PASS
+3 PASS
+4 PASS
+5 PASS
+6 PASS
+7 PASS
+                              
+TEST3 - set & read alarm, Minute mode at (1) :07, (2) 33
+A1 registers
+date:    0x30 A1M4: 1
+hours:   0x23 A1M3: 1
+minutes: 0x07 A1M2: 0
+DY bit: 0
+                              
+A2 registers
+date:    0x09 A2M4: 1
+hours:   0x08 A2M3: 1
+minutes: 0x33 A2M2: 0
+DY bit: 0
+                              
+TEST4 - set & read alarm, HourMinute mode at (1) 23:08, (2) 8:43
+A1 registers
+date:    0x30 A1M4: 1
+hours:   0x23 A1M3: 0
+minutes: 0x08 A1M2: 0
+DY bit: 0
+                              
+A2 registers
+date:    0x09 A2M4: 1
+hours:   0x08 A2M3: 0
+minutes: 0x43 A2M2: 0
+DY bit: 0
+                              
+TEST5 - set & read alarm, DayHourMinute mode at (1) 2 23:17, (2) 7 18:53
+A1 registers
+date:    0x02 A1M4: 0
+hours:   0x23 A1M3: 0
+minutes: 0x17 A1M2: 0
+DY bit: 1
+                              
+A2 registers
+date:    0x07 A2M4: 0
+hours:   0x18 A2M3: 0
+minutes: 0x53 A2M2: 0
+DY bit: 1
+                              
+TEST6 - set & read alarm, DateHourMinute mode at (1) 30 23:20, (2) 9 23:58
+A1 registers
+date:    0x30 A1M4: 0
+hours:   0x23 A1M3: 0
+minutes: 0x20 A1M2: 0
+DY bit: 0
+                              
+A2 registers
+date:    0x09 A2M4: 0
+hours:   0x23 A2M3: 0
+minutes: 0x58 A2M2: 0
+DY bit: 0
+                              
+TESTS COMPLETED!
