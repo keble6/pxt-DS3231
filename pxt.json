@@ -1,17 +1,17 @@
 {
     "name": "pxt-DS3231",
-    "description": "",
+    "description": "MakeCode extension for DS3231 RTC",
     "dependencies": {
         "core": "*",
         "radio": "*"
     },
     "files": [
-        "main.blocks",
         "main.ts",
         "README.md"
     ],
     "testFiles": [
-        "test.ts"
+        "test.ts",
+        "functional.ts"
     ],
     "supportedTargets": [
         "microbit"
