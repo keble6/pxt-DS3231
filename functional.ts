@@ -32,30 +32,48 @@ let result = ""
 serial.writeLine("FUNCTIONAL TEST 1 Temperature reading")
 serial.writeLine("Temperature: " + TwosCompToDec(DS3231.temperatureUpper()) + "." + Math.floor(DS3231.temperatureLower() / 64) * 25)
 serial.writeLine("")
-
-//
 serial.writeLine("FUNCTIONAL TEST 2 Alarm function")
 DS3231.configureINTCN(interruptEnable.Enable)
 DS3231.clearAlarmFlag(alarmNum.A1)
 DS3231.clearAlarmFlag(alarmNum.A2)
 DS3231.disableAlarm(alarmNum.A1, interruptEnable.Enable)
 DS3231.disableAlarm(alarmNum.A2, interruptEnable.Enable)
-//
 let alarmHour = 20
 let alarmMinute = 12
-DS3231.dateTime(DS3231.year(),DS3231.month(),DS3231.date(),DS3231.day(),alarmHour,alarmMinute - 1,0)
-DS3231.setAlarm(alarmNum.A1,mode.Minute,DS3231.date(),DS3231.day(),alarmHour,alarmMinute)
-DS3231.setAlarm(alarmNum.A2,mode.Minute,DS3231.date(),DS3231.day(),alarmHour,alarmMinute + 1)
-//
+DS3231.dateTime(
+DS3231.year(),
+DS3231.month(),
+DS3231.date(),
+DS3231.day(),
+alarmHour,
+alarmMinute - 1,
+0
+)
+DS3231.setAlarm(
+alarmNum.A1,
+mode.Minute,
+DS3231.date(),
+DS3231.day(),
+alarmHour,
+alarmMinute
+)
+DS3231.setAlarm(
+alarmNum.A2,
+mode.Minute,
+DS3231.date(),
+DS3231.day(),
+alarmHour,
+alarmMinute + 1
+)
 serial.writeLine("Alarm 1 set to: " + convertToText(alarmHour) + ":" + alarmMinute)
 serial.writeLine("Alarm 2 set to: " + convertToText(alarmHour) + ":" + (alarmMinute + 1))
-for (let index = 0; index <= 13; index++) {
+for (let index2 = 0; index2 <= 13; index2++) {
     Log()
-    if (DS3231.status() == 137 && pins.digitalReadPin(DigitalPin.P0) == 0) {
+    if ((DS3231.status() & 0x03) == 1 && pins.digitalReadPin(DigitalPin.P0) == 0) {
         serial.writeLine("Alarm 1 triggered and reset")
         DS3231.clearAlarmFlag(alarmNum.A1)
     }
-    if (DS3231.status() == 138 && pins.digitalReadPin(DigitalPin.P0) == 0) {
+    if ((DS3231.status() & 0x03) == 2 && pins.digitalReadPin(DigitalPin.P0) == 0) {
         serial.writeLine("Alarm 2 triggered and reset")
         DS3231.clearAlarmFlag(alarmNum.A2)
     }
