@@ -1,0 +1,23 @@
+FUNCTIONAL TEST 1 Temperature reading
+Temperature: 21.50
+                              
+FUNCTIONAL TEST 2 Alarm function
+Alarm 1 set to: 20:12
+Alarm 2 set to: 20:13
+2018/12/9 20:11:0 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:11:10 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:11:20 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:11:30 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:11:40 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:11:50 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:12:0 Control: 0x5f Status: 0x89 INT pin: 0
+Alarm 1 triggered and reset
+2018/12/9 20:12:10 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:12:20 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:12:30 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:12:40 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:12:50 Control: 0x5f Status: 0x88 INT pin: 1
+2018/12/9 20:13:0 Control: 0x5f Status: 0x8a INT pin: 0
+Alarm 2 triggered and reset
+2018/12/9 20:13:11 Control: 0x5f Status: 0x88 INT pin: 1
+TESTS COMPLETED
