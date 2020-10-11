@@ -8,7 +8,7 @@ NOTE: The DS3231 chip allows alarm 1 to have seconds set, in addition to minutes
 
 Also, functions are provided for handling the alarms:
 * read status register (includes the alarm flags AnF)
-* read control register
+* read control register (includes the alarm interrupt enables AnE and the INTCN bit)
 * enable/disable alarm (Status register)
 * clear alarm flags (Status register)
 * enable/disable INT pin (Control register)
