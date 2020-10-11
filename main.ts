@@ -1,7 +1,6 @@
 /**
 * makecode DS3231 RTC Package.
 * Based on DS1307 package from https://github.com/makecode-extensions/DS1307
-*
 */
 
 // enums to choose alarm number etc - these must be outside the namespace!
@@ -44,7 +43,6 @@ namespace DS3231 {
     let DS3231_REG_TEMPL  =   0x12
     
     
-
     /**
      * set a DS3231 reg
      */
@@ -202,18 +200,25 @@ namespace DS3231 {
      * @param second is the Second to be set, eg: 0
      */
     //% blockId="DS3231_SET_DATETIME" block="set year %year|month %month|date %date|day %day|hour %hour|minute %minute|second %second"
+    //% year.min=2000 year.max=2099
+    //% month.min=1   month.max=12
+    //% date.min=1    date.max=31
+    //% day.min=1     day.max=7
+    //% hour.min=0    hour.max=23
+    //% minute.min=0  minute.max=59
+    //% second.min=0  second.max=59
     //% weight=60 blockGap
     //% parts=DS3231 trackArgs=0
     export function dateTime(year: number, month: number, date: number, day: number, hour: number, minute: number, second: number){
         let buf = pins.createBuffer(8);
         buf[0] = DS3231_REG_SECOND;
-        buf[1] = decToBcd(second % 60);
-        buf[2] = decToBcd(minute % 60);
-        buf[3] = decToBcd(hour % 24);
-        buf[4] = decToBcd(day % 8);
-        buf[5] = decToBcd(date % 32);
-        buf[6] = decToBcd(month % 13);
-        buf[7] = decToBcd(year % 100);
+        buf[1] = decToBcd(second);
+        buf[2] = decToBcd(minute);
+        buf[3] = decToBcd(hour);
+        buf[4] = decToBcd(day);
+        buf[5] = decToBcd(date);
+        buf[6] = decToBcd(month);
+        buf[7] = decToBcd(year);
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, buf)
     }
     
@@ -229,6 +234,10 @@ namespace DS3231 {
      * @param minute is the Minute to be set, eg: 0
      */
     //% blockId="DS3231_ALARM" block="set alarm %name| mode %modeAn| date %date|day %day|hour %hour|minute %minute"
+    //% date.min=1    date.max=31
+    //% day.min=1     day.max=7
+    //% hour.min=0    hour.max=23
+    //% minute.min=0  minute.max=59
     //% weight=58 blockGap
     //% parts=DS3231 trackArgs=0
     export function setAlarm(name: alarmNum, modeAn: mode, date: number, day: number, hour: number, minute: number) {
