@@ -57,8 +57,8 @@ The photos below show the board and the microbit.
 
 ### test.ts
 Set time and alarm registers in "all" bit combinations, read back and verify
-Basic function test in minute alarm mode to show use of interrupt
+
 ### functional.ts
-Functional tests - read temperature, then set and wait for alarms.
+Functional tests - read temperature, then set and wait for alarms. Clear interrupts.
 
 
