@@ -13,6 +13,9 @@ Also, functions are provided for handling the alarms:
 * clear alarm flags (Status register)
 * enable/disable INT pin (Control register)
 
+## Supported targets
+* PXT/microbit
+
 ## More on the functions
 * xxx - read clock register where xxx is: year month date (week)day hour minute second
 * status - read reg 0x0f
