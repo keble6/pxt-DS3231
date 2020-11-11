@@ -218,7 +218,7 @@ namespace DS3231 {
         buf[4] = decToBcd(day);
         buf[5] = decToBcd(date);
         buf[6] = decToBcd(month);
-        buf[7] = decToBcd(year);
+        buf[7] = decToBcd(year-2000);//bug fix, notified by pull req from mworkfun
         pins.i2cWriteBuffer(DS3231_I2C_ADDR, buf)
     }
     
