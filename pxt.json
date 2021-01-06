@@ -3,8 +3,7 @@
     "description": "Extension for DS3231 RTC",
     "version": "1.0.1",
     "dependencies": {
-        "core": "*",
-        "radio": "*"
+        "core": "*"
     },
     "files": [
         "main.ts",
